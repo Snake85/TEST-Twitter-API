@@ -11,6 +11,10 @@ $consumerkey = "";
 $consumersecret = "";
 $accesstoken = "";
 $accesstokensecret = "";
+if (empty($consumerkey) || empty($consumersecret) || empty($accesstoken) || empty($accesstokensecret)) {
+	throw new Exception('Twitter keys and tokens NOT provided');
+}
+
 require_once("library/twitteroauth/twitteroauth.php");
 $connection = new TwitterOAuth($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
 
